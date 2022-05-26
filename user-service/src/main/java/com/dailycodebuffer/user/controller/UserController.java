@@ -1,12 +1,14 @@
 package com.dailycodebuffer.user.controller;
 
 import com.dailycodebuffer.user.VO.ResponseTemplateVO;
+import com.dailycodebuffer.user.VO.userVO;
 import com.dailycodebuffer.user.entity.User;
 import com.dailycodebuffer.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/users")
@@ -15,6 +17,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    private RestTemplate restTemplate;
 
     @PostMapping("/")
     public User saveUser(@RequestBody User user) {
@@ -27,6 +31,7 @@ public class UserController {
         log.info("Inside getUserWithDepartment of UserController");
         return userService.getUserWithDepartment(userId);
     }
+
 
 
 }

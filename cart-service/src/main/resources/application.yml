@@ -1,0 +1,8 @@
+server:
+  port: 9025
+
+spring:
+  application:
+    name: CART-SERVICE
+  zipkin:
+    base-url: http://127.0.0.1:9411/
